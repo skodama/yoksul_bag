@@ -1,0 +1,507 @@
+@charset "UTF-8";
+@import "compass";
+@import "compass/reset";
+
+body {
+  font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", sans-serif;
+}
+
+.wrapper {
+  font-size: 16px;
+  background-color: #f0f0f0;
+}
+
+a {
+  text-decoration: none;
+  opacity:1;
+  @include transition-property(opacity);
+  @include transition-duration(0.3s);
+  @include transition-timing-function(ease-in);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@mixin effect_opacity(){
+  @include transition-property(opacity);
+  @include transition-duration(1s);
+  @include transition-timing-function(ease-in);
+  &.invisible{
+    opacity: 0;
+  }
+  &.visible{
+    opacity: 1;
+  }
+
+}
+
+//mixin s
+@mixin innerStyle {
+  margin: auto;
+  width: 100%;
+  max-width: 540px;
+}
+
+.header {
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  @include box-shadow(0px 0px 10px rgba(0,0,0,0.3) );
+
+
+  &__inner {
+    @include innerStyle;
+
+    &__block {
+      @include pie-clearfix;
+      padding: 10px;
+
+      &__title {
+        background: #aaa;
+        width: 100px;
+        height: 44px;
+        float: left;
+      }
+
+
+      &__lineButton {
+        display: block;
+        text-align: center;
+        width: 150px;
+        height: 44px;
+        color: #fff;
+        background: #00b900;
+        line-height:44px;
+        float: right;
+        @include border-radius(2px);
+      }
+    }
+  }
+}
+//header
+
+.mainContent {
+  padding-top: 64px;
+
+  .mainHeader {
+    background: #e9d9c2;
+    $mainHeader_height:450px;
+    &__inner {
+      @include pie-clearfix;
+      @include innerStyle;
+      //background: url("../images/bag_yori.jpg") no-repeat bottom center;
+      //background-size:cover;
+      height: $mainHeader_height;
+      position: relative;
+
+      &__title {
+        color: #fff;
+        font-size: 32px;
+        font-weight: bold;
+        position: relative;
+        top:50px;
+        left:10%;
+        width:80%;
+        &__line{
+          display: inline-block;
+          background: #000;
+          margin-bottom: 30px;
+
+        }
+      }
+
+      &__buyButton {
+        position: absolute;
+        width: 80%;
+        height: 60px;
+        text-align: center;
+        font-size: 24px;
+        background: #fff;
+        left: 10%;
+        bottom: 50px;
+        vertical-align: middle;
+        line-height:60px;
+        color: #000;
+      }
+      &__image{
+        display: block;
+        background: url("../images/bag_yori.jpg") no-repeat bottom center;
+        background-size:cover;
+        height: $mainHeader_height;
+        width:100%;
+        position: absolute;
+        bottom:0;
+     // display: block;
+     }
+    }
+  }
+  //.mainHeader
+  .introduction {
+    background: #fff;
+    margin: auto;
+    position: relative;
+
+    &__inner {
+      @include innerStyle;
+
+
+      &__title {
+        padding: 50px 20px 10px;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 20px;
+        @include effect_opacity;
+
+      }
+
+      &__text {
+        padding: 10px 20px 50px;
+        font-size: 18px;
+        @include effect_opacity;
+
+        p {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+  //.introduction
+  .mainPoint1,
+  .mainPoint2,
+  .mainPoint3 {
+    position: relative;
+    &__inner {
+      @include innerStyle;
+      height: 800px;
+      position: relative;
+      &__image{
+        display: block;
+        height:600px;
+        width:100%;
+        position: absolute;
+        bottom:0;
+      }
+
+      &__title {
+        font-size: 24px;
+        padding: 50px 20px 20px;
+        font-weight: bold;
+        @include effect_opacity;
+        position: relative;
+
+      }
+
+      &__text {
+        font-size: 18px;
+        line-height: 28px;
+        padding: 20px;
+        @include effect_opacity;
+        position: relative;
+
+      }
+    }
+  }
+  .mainPoint1 {
+    background: #ffffff  ;
+    &__inner{
+      // height: 800px;
+      &__image{
+        background: url("../images/output_min.gif") no-repeat bottom center;
+        background-size:60%;
+
+      }
+    }
+  }
+  .mainPoint2 {
+    background: #fff;
+    &__inner{
+      &__image{
+        background: url("../images/bag_open.png") no-repeat bottom center;
+        background-size:contain;
+
+      }
+      &__image-bg{
+        display: block;
+        height:600px;
+        width:100%;
+        position: absolute;
+        bottom:0;
+        background: url("../images/bag_open_bg.png") no-repeat bottom center;
+        background-size:contain;
+      }
+      &__image-mbp{
+        display: block;
+        height:600px;
+        width:100%;
+        position: absolute;
+        bottom:0;
+        background: url("../images/mbp.png") no-repeat bottom center;
+        background-size:contain;
+      }
+      &__image-front{
+        display: block;
+        height:600px;
+        width:100%;
+        position: absolute;
+        bottom:0;
+        background: url("../images/bag_open_front.png") no-repeat bottom center;
+        background-size:contain;
+      }
+
+    }
+  }
+  .mainPoint3 {
+    background: #fff;
+    &__inner{
+      &__image{
+        background: url("../images/pat.png") no-repeat bottom right;
+        background-size:contain;
+      }
+    }
+  }
+
+
+  .mainInstagram {
+    position: relative;
+    background: #ddd;
+    width: 100%;
+
+    &__inner {
+      @include innerStyle;
+
+      &__title {
+        font-size: 48px;
+        // font-weight: bold;
+        padding: 50px 20px 20px;
+        @include effect_opacity;
+        position: relative;
+      }
+
+      &__text {
+        display: block;
+        font-size: 18px;
+        line-height: 28px;
+        padding: 20px;
+        @include effect_opacity;
+        position: relative;
+      }
+
+      &__control {
+        padding: 20px 20px 50px;
+
+        &__moreButton {
+          display: block;
+          width:60%;
+          background: #666;
+          height: 44px;
+          line-height:44px;
+          text-align: center;
+          margin: auto;
+          color: #fff;
+        }
+      }
+    }
+
+    .mainInstagram__carouselWrapper {
+      display: block;
+
+      ul {
+        @include pie-clearfix;
+        display: block;
+        padding: 10px;
+        // width: 160*5px;
+        // height: 150px;
+        font-size: 0;
+
+        li {
+          width: 32%;
+          margin-right: 2%;
+          margin-bottom: 10px;
+          float: left;
+
+          &:nth-child(3),
+          &:nth-child(6) {
+            margin-right: 0;
+          }
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  //.mainInstagram
+  .mainDetail {
+    &__sec1,
+    &__sec2,
+    &__sec3,
+    &__sec4 {
+      position: relative;
+      &__inner {
+        @include innerStyle;
+        &__title {
+          font-size: 48px;
+          // font-weight: bold;
+          padding: 50px 20px 20px;
+          @include effect_opacity;
+          position: relative;
+          h1{
+            margin-bottom: 2px;
+          }
+          span{
+            color:#666;
+            font-weight: bold;
+            font-size: 14px;
+          }
+        }
+
+        &__content {
+          display: block;
+          padding: 20px;
+
+        }
+      }
+    }
+    //common style
+
+    &__sec1,&__sec2{
+      background: #f0f0f0;
+      &__inner__content{
+        display: block;
+        padding: 20px;
+        .items {
+          li{
+            display: block;
+            margin-bottom: 50px;
+
+            @include effect_opacity;
+          }
+          .title{
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+
+          }
+          .detail{
+            font-size: 14px;
+          }
+          .image{
+            width:150px;
+            display: block;
+            margin: 0 auto 10px;
+            img{
+              width:100%;
+              @include border-radius(50%);
+            }
+          }
+        }
+
+      }
+    }
+    //sec1,sec2 common style
+
+    &__sec3{
+      background: #fff;
+      .content--image{
+        width:100%;
+        img{
+          width:100%;
+        }
+      }
+      .content--table{
+        table{
+          width:100%;
+          .tr1{
+            border-bottom: 1px solid #999;
+            .th1{
+              padding: 10px 0;
+              font-weight: bold;
+              font-size: 20px;
+              color:#666;
+            }
+          }
+          .tr1,.tr2,.tr3,.tr4{
+            td:nth-child(1){
+              width:30%;
+            }
+            .td1{
+              font-weight: bold;
+              padding: 20px 0;
+              .subtext{
+                font-size: 12px;
+                color:#999;
+              }
+            }
+            .td2{
+
+            }
+          }
+        }
+      }
+    }
+    //sec3
+    &__sec4{
+      color:#fff;
+      background: #333;
+      .content--image{
+        width:100%;
+        img{
+          width:100%;
+        }
+      }
+    }
+    //sec4
+
+
+
+  }
+}
+//.mainContent
+
+.footer {
+  position: relative;
+  display: block;
+  padding-bottom: 64px;
+  text-align: center;
+  height:100px;
+  background: #222;
+  color: #fff;
+
+  p {
+    padding: 20px;
+  }
+}
+
+.bottomNav {
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  @include box-shadow(0px 0px 10px rgba(0,0,0,0.3) );
+
+
+  &__inner {
+    @include pie-clearfix;
+    padding: 10px;
+    &__title{
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    &__buyButton {
+      display: block;
+      height: 44px;
+      background: #333;
+      margin-right: 10px;
+      line-height:44px;
+      text-align: center;
+      color: #fff;
+
+
+    }
+  }
+}
